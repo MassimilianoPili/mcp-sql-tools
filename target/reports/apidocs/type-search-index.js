@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"io.github.massimilianopili.mcp.sql","l":"DatabaseTools"},{"p":"io.github.massimilianopili.mcp.sql","l":"MultiDataSourceConfig"},{"p":"io.github.massimilianopili.mcp.sql","l":"SqlToolsAutoConfiguration"}];updateSearchResults();
