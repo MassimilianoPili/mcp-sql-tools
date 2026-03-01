@@ -8,11 +8,11 @@ Spring Boot starter providing MCP tools for SQL database operations. Supports mu
 <dependency>
     <groupId>io.github.massimilianopili</groupId>
     <artifactId>mcp-sql-tools</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0</version>
 </dependency>
 ```
 
-Requires Java 17+ and Spring AI 1.0.0+.
+Requires Java 21+ and Spring AI 1.0.0+.
 
 ## Tools
 
@@ -41,17 +41,17 @@ MCP_DB_PRODUCTION_USER=app
 MCP_DB_PRODUCTION_PASSWORD=secret
 ```
 
-Always active when a JDBC DataSource is available (default: H2 in-memory).
+Activated by `MCP_SQL_ENABLED=true` (default). Drivers (H2, Oracle, PostgreSQL) are included as compile dependencies — transitive to the consumer.
 
 ## How It Works
 
 - Uses `@Tool` (Spring AI) for synchronous MCP tool methods
-- Auto-configured via `SqlToolsAutoConfiguration` with `@ConditionalOnClass(JdbcTemplate.class)`
+- Auto-configured via `SqlToolsAutoConfiguration` with `@ConditionalOnProperty(name = "mcp.sql.enabled")` + `@ConditionalOnClass(JdbcTemplate.class)`
 - Multi-datasource registry creates HikariCP DataSources dynamically from `MCP_DB_NAMES`
 
 ## Requirements
 
-- Java 17+
+- Java 21+
 - Spring Boot 3.4+
 - Spring AI 1.0.0+
 
